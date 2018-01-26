@@ -27,21 +27,37 @@ https://www.cnblogs.com/EasonJim/p/6828364.html
 ② 更改服务器中项目的Gradle文件，目的是将打包后的文件直接输出到①的路径中，大概如下：
 
 android{
+
 	applicationVariants.all { variant ->
+	
         variant.outputs.each { output ->
+		
             def today = new Date().format('MMdd-HHmm');//自定义添加日期
+			
             def outputFile = output.outputFile;//def意为定义，其实你可以把它当做String outputFile = output.outputFile这样来理解
+			
             def newFilePath = "/data/jenkinsPack/version3.x.x_test";
+			
             if (outputFile != null && outputFile.name.endsWith('.apk')) {
+			
                 def oldFileName = outputFile.name.replace(".apk","-" + today + "-" + defaultConfig.versionName + ".apk");//replace方法，将原本的xxx-release.apk更名为xxx-release-0802-1212-v1.0.0.apk这样的apk命名
+				
                 File newFile = new File(newFilePath);//指定移动到的目标目录
+				
                 output.outputFile = new File(newFile,oldFileName );//创建并生成目标目录
+				
 //               outputFile.delete()
+
             }else {
+			
             }
+			
         }
+		
     }
+	
 }
+
 
 注意：newFilePath的路径一定要对应本地svn的路径，注意路径的正确性以及是否有读写权限；这段代码是放在android{}里的。
 
