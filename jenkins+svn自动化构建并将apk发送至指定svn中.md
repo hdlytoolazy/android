@@ -45,11 +45,9 @@ android{
                 File newFile = new File(newFilePath);//指定移动到的目标目录
 				
                 output.outputFile = new File(newFile,oldFileName );//创建并生成目标目录
-				
-//               outputFile.delete()
 
             }else {
-			
+				
             }
 			
         }
