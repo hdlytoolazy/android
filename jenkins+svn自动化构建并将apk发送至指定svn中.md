@@ -63,7 +63,7 @@ android{
 
 ![Alt text](https://raw.githubusercontent.com/hdlytoolazy/android/master/raw/Screenshots/20180126215830.png)
 
---no-auth-cache  不缓存验证信息，否则会出现类似如下图的错误：
+--no-auth-cache  不缓存验证信息。如果使用临时用户名更新or提交不加这条命令，就会出现类似如下图的错误：
 
 ![Alt text](https://raw.githubusercontent.com/hdlytoolazy/android/master/raw/Screenshots/20180126221714.png)
 
